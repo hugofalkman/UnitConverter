@@ -13,6 +13,7 @@
 		B1C18A332354885E0020440D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C18A322354885E0020440D /* Assets.xcassets */; };
 		B1C18A362354885E0020440D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C18A352354885E0020440D /* Preview Assets.xcassets */; };
 		B1C18A392354885E0020440D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C18A372354885E0020440D /* LaunchScreen.storyboard */; };
+		B1C18A412354AFCF0020440D /* UnitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C18A402354AFCF0020440D /* UnitPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B1C18A352354885E0020440D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1C18A382354885E0020440D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1C18A3A2354885E0020440D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1C18A402354AFCF0020440D /* UnitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				B1C18A2C2354885D0020440D /* AppDelegate.swift */,
 				B1C18A2E2354885D0020440D /* SceneDelegate.swift */,
 				B1C18A302354885D0020440D /* ContentView.swift */,
+				B1C18A402354AFCF0020440D /* UnitPicker.swift */,
 				B1C18A322354885E0020440D /* Assets.xcassets */,
 				B1C18A372354885E0020440D /* LaunchScreen.storyboard */,
 				B1C18A3A2354885E0020440D /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1C18A2D2354885D0020440D /* AppDelegate.swift in Sources */,
+				B1C18A412354AFCF0020440D /* UnitPicker.swift in Sources */,
 				B1C18A2F2354885D0020440D /* SceneDelegate.swift in Sources */,
 				B1C18A312354885D0020440D /* ContentView.swift in Sources */,
 			);
