@@ -15,12 +15,12 @@ struct UnitPicker: View {
     
     var body: some View {
         if unitType == 1 {
-            return ForEach(0 ..< self.unitVolumes.count) {
-                Text(self.unitVolumes[$0].symbol)
+            return ForEach(0 ..< self.unitVolumes.count) { index in
+                Text(self.unitVolumes[index].symbol).tag(index)
             }
         } else {
-            return ForEach(0 ..< self.unitLengths.count) {
-                Text(self.unitLengths[$0].symbol)
+            return ForEach(0 ..< self.unitLengths.count) { index in
+                Text(self.unitLengths[index].symbol).tag(index)
             }
         }
     }
