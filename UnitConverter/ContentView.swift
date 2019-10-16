@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    let unitTypes = ["Unit Length", "Unit Volume"]
+    let unitTypes = ["Unit Length", "Unit Area", "Unit Volume"]
     let unitLengths: [UnitLength] = [.meters, .kilometers, .feet, .yards, .miles]
+    let unitAreas: [UnitArea] = [.squareMeters, .hectares, .squareFeet, .acres, .squareMiles]
     let unitVolumes: [UnitVolume] = [.milliliters, .liters, .cups, .pints, .gallons]
     
     @State private var input = ""
@@ -21,6 +22,8 @@ struct ContentView: View {
     var inputSymbol: String {
         switch unitType {
         case 1:
+            return unitAreas[inputUnit].symbol
+        case 2:
             return unitVolumes[inputUnit].symbol
         default:
             return unitLengths[inputUnit].symbol
@@ -32,6 +35,9 @@ struct ContentView: View {
         
         switch unitType {
         case 1:
+            let measurement = Measurement(value: inputValue, unit: unitAreas[inputUnit]).converted(to: unitAreas[outputUnit])
+            return (measurement.value, measurement.unit.symbol)
+        case 2:
             let measurement = Measurement(value: inputValue, unit: unitVolumes[inputUnit]).converted(to: unitVolumes[outputUnit])
             return (measurement.value, measurement.unit.symbol)
         default:
@@ -64,6 +70,8 @@ struct ContentView: View {
                 
                 Section(header: Text("From Unit")) {
                     if unitType == 1 {
+                        UnitPicker(units: unitAreas, unit: $inputUnit)
+                    } else if unitType == 2 {
                         UnitPicker(units: unitVolumes, unit: $inputUnit)
                     } else {
                         UnitPicker(units: unitLengths, unit: $inputUnit)
@@ -72,6 +80,8 @@ struct ContentView: View {
                 
                 Section(header: Text("To Unit")) {
                     if unitType == 1 {
+                        UnitPicker(units: unitAreas, unit: $outputUnit)
+                    } else if unitType == 2 {
                         UnitPicker(units: unitVolumes, unit: $outputUnit)
                     } else {
                         UnitPicker(units: unitLengths, unit: $outputUnit)
