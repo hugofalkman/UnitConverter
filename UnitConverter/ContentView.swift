@@ -63,17 +63,19 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("From Unit")) {
-                    Picker("Input Unit", selection: $inputUnit) {
-                        UnitPicker(unitType: unitType, unitLengths: unitLengths, unitVolumes: unitVolumes)
+                    if unitType == 1 {
+                        VolumePicker(unitVolumes: unitVolumes, volumeUnit: $inputUnit)
+                    } else {
+                        LengthPicker(unitLengths: unitLengths, lengthUnit: $inputUnit)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("To Unit")) {
-                    Picker("Output Unit", selection: $outputUnit) {
-                        UnitPicker(unitType: unitType, unitLengths: unitLengths, unitVolumes: unitVolumes)
+                    if unitType == 1 {
+                        VolumePicker(unitVolumes: unitVolumes, volumeUnit: $outputUnit)
+                    } else {
+                        LengthPicker(unitLengths: unitLengths, lengthUnit: $outputUnit)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
                 
                 Section(header: Text("To:")) {
