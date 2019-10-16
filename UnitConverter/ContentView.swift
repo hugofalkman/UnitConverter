@@ -64,17 +64,17 @@ struct ContentView: View {
                 
                 Section(header: Text("From Unit")) {
                     if unitType == 1 {
-                        VolumePicker(unitVolumes: unitVolumes, volumeUnit: $inputUnit)
+                        UnitPicker(units: unitVolumes, unit: $inputUnit)
                     } else {
-                        LengthPicker(unitLengths: unitLengths, lengthUnit: $inputUnit)
+                        UnitPicker(units: unitLengths, unit: $inputUnit)
                     }
                 }
                 
                 Section(header: Text("To Unit")) {
                     if unitType == 1 {
-                        VolumePicker(unitVolumes: unitVolumes, volumeUnit: $outputUnit)
+                        UnitPicker(units: unitVolumes, unit: $outputUnit)
                     } else {
-                        LengthPicker(unitLengths: unitLengths, lengthUnit: $outputUnit)
+                        UnitPicker(units: unitLengths, unit: $outputUnit)
                     }
                 }
                 
