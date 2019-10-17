@@ -22,11 +22,20 @@ struct ContentView: View {
     var inputSymbol: String {
         switch unitType {
         case 1:
-            return unitAreas[inputUnit].symbol
+            if inputUnit < unitAreas.count {
+                return unitAreas[inputUnit].symbol
+            }
+            return ""
         case 2:
-            return unitVolumes[inputUnit].symbol
+            if inputUnit < unitVolumes.count {
+                return unitVolumes[inputUnit].symbol
+            }
+            return ""
         default:
-            return unitLengths[inputUnit].symbol
+            if inputUnit < unitLengths.count {
+                return unitLengths[inputUnit].symbol
+            }
+            return ""
         }
     }
     
@@ -35,14 +44,23 @@ struct ContentView: View {
         
         switch unitType {
         case 1:
-            let measurement = Measurement(value: inputValue, unit: unitAreas[inputUnit]).converted(to: unitAreas[outputUnit])
-            return (measurement.value, measurement.unit.symbol)
+            if inputUnit < unitAreas.count && outputUnit < unitAreas.count {
+                let measurement = Measurement(value: inputValue, unit: unitAreas[inputUnit]).converted(to: unitAreas[outputUnit])
+                return (measurement.value, measurement.unit.symbol)
+            }
+            return (0, "")
         case 2:
-            let measurement = Measurement(value: inputValue, unit: unitVolumes[inputUnit]).converted(to: unitVolumes[outputUnit])
-            return (measurement.value, measurement.unit.symbol)
+            if inputUnit < unitVolumes.count && outputUnit < unitVolumes.count {
+                let measurement = Measurement(value: inputValue, unit: unitVolumes[inputUnit]).converted(to: unitVolumes[outputUnit])
+                return (measurement.value, measurement.unit.symbol)
+            }
+            return (0, "")
         default:
-            let measurement = Measurement(value: inputValue, unit: unitLengths[inputUnit]).converted(to: unitLengths[outputUnit])
-            return (measurement.value, measurement.unit.symbol)
+            if inputUnit < unitLengths.count && outputUnit < unitLengths.count {
+                let measurement = Measurement(value: inputValue, unit: unitLengths[inputUnit]).converted(to: unitLengths[outputUnit])
+                return (measurement.value, measurement.unit.symbol)
+            }
+            return (0, "")
         }
     }
     
