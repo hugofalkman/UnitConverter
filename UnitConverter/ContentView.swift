@@ -72,21 +72,21 @@ struct ContentView: View {
                 
                 Section(header: Text("From Unit")) {
                     if unitType == 1 {
-                        UnitPicker(units: unitAreas, unit: $inputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
                     } else if unitType == 2 {
-                        UnitPicker(units: unitVolumes, unit: $inputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
                     } else {
-                        UnitPicker(units: unitLengths, unit: $inputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
                     }
                 }
                 
                 Section(header: Text("To Unit")) {
                     if unitType == 1 {
-                        UnitPicker(units: unitAreas, unit: $outputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
                     } else if unitType == 2 {
-                        UnitPicker(units: unitVolumes, unit: $outputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
                     } else {
-                        UnitPicker(units: unitLengths, unit: $outputUnit)
+                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
                     }
                 }
                 

@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct UnitPicker: View {
-    var units: [Dimension]
+    var units: [String]
     
     @Binding var unit: Int
     
     var body: some View {
         Picker("", selection: $unit) {
             ForEach(0 ..< units.count) { index in
-                Text(self.units[index].symbol).tag(index)
+                Text(self.units[index]).tag(index)
             }
         }
         .pickerStyle(SegmentedPickerStyle())
@@ -25,6 +25,6 @@ struct UnitPicker: View {
 
 struct UnitPicker_Previews: PreviewProvider {
     static var previews: some View {
-        UnitPicker(units: [UnitLength.meters], unit: .constant(0))
+        UnitPicker(units: ["m"], unit: .constant(0))
     }
 }
