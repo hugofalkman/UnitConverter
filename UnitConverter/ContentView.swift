@@ -19,24 +19,8 @@ struct ContentView: View {
     @State private var outputUnit = 0
     @State private var unitType = 0
     
-    var inputSymbol: String {
-        switch unitType {
-        case 1:
-            if inputUnit < unitAreas.count {
-                return unitAreas[inputUnit].symbol
-            }
-            return ""
-        case 2:
-            if inputUnit < unitVolumes.count {
-                return unitVolumes[inputUnit].symbol
-            }
-            return ""
-        default:
-            if inputUnit < unitLengths.count {
-                return unitLengths[inputUnit].symbol
-            }
-            return ""
-        }
+    var symbols: [[String]] {
+        [unitLengths.map { $0.symbol }, unitAreas.map { $0.symbol }, unitVolumes.map { $0.symbol }]
     }
     
     var output: (value: Double, symbol: String) {
@@ -72,7 +56,7 @@ struct ContentView: View {
                         TextField("Value", text: $input)
                             .frame(width: 150)
                             .keyboardType(.decimalPad)
-                        Text(inputSymbol)
+                        Text(inputUnit < symbols[unitType].count ? symbols[unitType][inputUnit] : "")
                         Spacer()
                     }
                 }
@@ -109,7 +93,7 @@ struct ContentView: View {
                 Section(header: Text("To:")) {
                     HStack {
                         Text("\(output.value, specifier: "%g") ")
-                        Text(output.symbol)
+                        Text(outputUnit < symbols[unitType].count ? symbols[unitType][outputUnit] : "")
                     }
                 }
             }
