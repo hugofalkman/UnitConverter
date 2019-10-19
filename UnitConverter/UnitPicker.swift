@@ -15,7 +15,7 @@ struct UnitPicker: View {
     
     var body: some View {
         Picker("", selection: $unit) {
-            ForEach(0 ..< units.count) { index in
+            ForEach(units.indices, id: \.self) { index in
                 Text(self.units[index]).tag(index)
             }
         }
