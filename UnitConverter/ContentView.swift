@@ -23,6 +23,10 @@ struct ContentView: View {
         [unitLengths.map { $0.symbol }, unitAreas.map { $0.symbol }, unitVolumes.map { $0.symbol }]
     }
     
+    var units: [String] {
+        symbols[unitType]
+    }
+    
     var output: (value: Double, symbol: String) {
         let inputValue = Double(input) ?? 0
         
@@ -56,7 +60,7 @@ struct ContentView: View {
                         TextField("Value", text: $input)
                             .frame(width: 150)
                             .keyboardType(.decimalPad)
-                        Text(inputUnit < symbols[unitType].count ? symbols[unitType][inputUnit] : "")
+                        Text(inputUnit < units.count ? units[inputUnit] : "")
                         Spacer()
                     }
                 }
@@ -72,28 +76,28 @@ struct ContentView: View {
                 
                 Section(header: Text("From Unit")) {
                     if unitType == 1 {
-                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
+                        UnitPicker(units: units, unit: $inputUnit)
                     } else if unitType == 2 {
-                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
+                        UnitPicker(units: units, unit: $inputUnit)
                     } else {
-                        UnitPicker(units: symbols[unitType], unit: $inputUnit)
+                        UnitPicker(units: units, unit: $inputUnit)
                     }
                 }
                 
                 Section(header: Text("To Unit")) {
                     if unitType == 1 {
-                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
+                        UnitPicker(units: units, unit: $outputUnit)
                     } else if unitType == 2 {
-                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
+                        UnitPicker(units: units, unit: $outputUnit)
                     } else {
-                        UnitPicker(units: symbols[unitType], unit: $outputUnit)
+                        UnitPicker(units: units, unit: $outputUnit)
                     }
                 }
                 
                 Section(header: Text("To:")) {
                     HStack {
                         Text("\(output.value, specifier: "%g") ")
-                        Text(outputUnit < symbols[unitType].count ? symbols[unitType][outputUnit] : "")
+                        Text(outputUnit < units.count ? units[outputUnit] : "")
                     }
                 }
             }
