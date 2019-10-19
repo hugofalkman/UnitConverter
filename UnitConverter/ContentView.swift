@@ -66,32 +66,17 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Unit Type")) {
-                    Picker("Unit Type", selection: $unitType) {
-                        ForEach(0 ..< self.unitTypes.count) {
-                            Text(self.unitTypes[$0])
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
+                    UnitPicker(units: unitTypes, unit: $unitType)
                 }
                 
                 Section(header: Text("From Unit")) {
-                    if unitType == 1 {
-                        UnitPicker(units: units, unit: $inputUnit)
-                    } else if unitType == 2 {
-                        UnitPicker(units: units, unit: $inputUnit)
-                    } else {
-                        UnitPicker(units: units, unit: $inputUnit)
-                    }
+                    UnitPicker(units: units, unit: $inputUnit)
+                        .id(unitType)
                 }
                 
                 Section(header: Text("To Unit")) {
-                    if unitType == 1 {
-                        UnitPicker(units: units, unit: $outputUnit)
-                    } else if unitType == 2 {
-                        UnitPicker(units: units, unit: $outputUnit)
-                    } else {
-                        UnitPicker(units: units, unit: $outputUnit)
-                    }
+                    UnitPicker(units: units, unit: $outputUnit)
+                        .id(unitType)
                 }
                 
                 Section(header: Text("To:")) {

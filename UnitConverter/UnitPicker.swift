@@ -20,6 +20,7 @@ struct UnitPicker: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
+        .font(.largeTitle)
     }
 }
 
