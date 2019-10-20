@@ -27,28 +27,28 @@ struct ContentView: View {
         symbols[unitType]
     }
     
-    var output: (value: Double, symbol: String) {
+    var output: Double {
         let inputValue = Double(input) ?? 0
         
         switch unitType {
         case 1:
             if inputUnit < unitAreas.count && outputUnit < unitAreas.count {
                 let measurement = Measurement(value: inputValue, unit: unitAreas[inputUnit]).converted(to: unitAreas[outputUnit])
-                return (measurement.value, measurement.unit.symbol)
+                return measurement.value
             }
-            return (0, "")
+            return 0
         case 2:
             if inputUnit < unitVolumes.count && outputUnit < unitVolumes.count {
                 let measurement = Measurement(value: inputValue, unit: unitVolumes[inputUnit]).converted(to: unitVolumes[outputUnit])
-                return (measurement.value, measurement.unit.symbol)
+                return measurement.value
             }
-            return (0, "")
+            return 0
         default:
             if inputUnit < unitLengths.count && outputUnit < unitLengths.count {
                 let measurement = Measurement(value: inputValue, unit: unitLengths[inputUnit]).converted(to: unitLengths[outputUnit])
-                return (measurement.value, measurement.unit.symbol)
+                return measurement.value
             }
-            return (0, "")
+            return 0
         }
     }
     
@@ -81,7 +81,7 @@ struct ContentView: View {
                 
                 Section(header: Text("To:")) {
                     HStack {
-                        Text("\(output.value, specifier: "%g") ")
+                        Text("\(output, specifier: "%g") ")
                         Text(outputUnit < units.count ? units[outputUnit] : "")
                     }
                 }
