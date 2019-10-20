@@ -11,8 +11,8 @@ import SwiftUI
 struct ContentView: View {
     let unitTypeLabels = ["Unit Length", "Unit Area", "Unit Volume"]
     let unitLengths: [UnitLength] = [.meters, .kilometers, .feet, .yards, .miles]
-    let unitAreas: [UnitArea] = [.squareMeters, .hectares, .squareFeet, .acres, .squareMiles]
-    let unitVolumes: [UnitVolume] = [.milliliters, .liters, .cups, .pints, .gallons]
+    let unitAreas: [UnitArea] = [.squareMeters, .hectares, .squareFeet, .acres]
+    let unitVolumes: [UnitVolume] = [.milliliters, .liters, .cups, .pints, .gallons, .cubicInches]
     
     @State private var input = ""
     @State private var inputUnit = 2
