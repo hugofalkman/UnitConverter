@@ -26,6 +26,6 @@ struct UnitPicker: View {
 
 struct UnitPicker_Previews: PreviewProvider {
     static var previews: some View {
-        UnitPicker(units: ["m"], unit: .constant(0))
+        UnitPicker(units: ["m", "km", "ft", "ya", "mi"], unit: .constant(0))
     }
 }
